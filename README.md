@@ -1,5 +1,10 @@
 # Bloggie - Developer Test
 
+## Intro
+Bloggie is a blog site. On the frontend/user facing site, there are three page types - home page, blog index/list page, and a blog show/details page.
+
+There is also an admin panel for authorised users to create and edit blog posts.
+
 ## Setup
 * Copy this project to a new repo on github, using best practices for your commits.
 * Install the laravel project as normal - using yarn as the JS package manager.
