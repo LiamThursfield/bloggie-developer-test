@@ -17,8 +17,8 @@ There is also an admin panel for authorised users to create and edit blog posts.
 * Ensure the "Latest Blogs" section on the website home page is only showing up to 3 posts.
 * The "Featured Blogs" section is not showing any blogs, even when there is valid data in the database. Investigate and fix.
 * The client would like the "Featured Blogs" to be ordered by the most recently featured first.  
-* Ensure the frontend/website `/blogs` page is showing live blogs, ordered by the most recently published first.
-* When clicking through to a blog post from `/blogs` page, we are getting a 404.
+* Ensure the frontend/website `/blog` page is showing live blogs, ordered by the most recently published first.
+* When clicking through to a blog post from `/blog` page, we are getting a 404.
 * Clear as many console log errors as possible.
 * The client would like a new field adding to the blogs for a second section of content. Implement this functionality.
     * There is no need to worry about the styling of the section on the frontend website, just add it as a new `<p>` tag below the main content. 
