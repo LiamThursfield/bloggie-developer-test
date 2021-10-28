@@ -43,6 +43,8 @@ class BlogStoreRequest extends FormRequest
             'published_at'  => ['nullable', 'date'],
             'slug'          => ['required', 'min:3', 'max:255', 'unique:blogs'],
             'title'         => ['required', 'min:3', 'max:255'],
+            'expired_at'    => ['nullable', 'date'],
+            'additional_details'    => ['nullable'],
         ];
     }
 }

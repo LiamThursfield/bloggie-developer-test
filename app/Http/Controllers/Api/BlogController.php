@@ -20,8 +20,8 @@ class BlogController extends Controller
             ->where(function ($subquery) use ($now) {
                 return $subquery->where('expired_at', '>', $now)->orWhereNull('expired_at');
             })
-            ->orderBy('published_at', 'desc')
             ->limit($request->get('limit', 3))
+            ->latest('featured_at')
             ->get();
 
         return response()->json($blogs);
@@ -30,11 +30,13 @@ class BlogController extends Controller
     public function latest(Request $request) : JsonResponse
     {
         $now = Carbon::now();
-        $blogs = Blog::where(function ($subquery) use ($now) {
+        $blogs = Blog::whereNotNull('published_at')
+            ->where('published_at', '<=', $now)
+            ->where(function ($subquery) use ($now) {
                 return $subquery->where('expired_at', '>', $now)->orWhereNull('expired_at');
             })
-            ->orderBy('published_at', 'asc')
-            ->limit($request->get('limit', 3))
+            ->limit($request->get('limit', 9))
+            ->latest('published_at')
             ->get();
 
         return response()->json($blogs);

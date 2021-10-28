@@ -44,7 +44,7 @@ class BlogController extends Controller
     {
         $blog = Blog::create($request->validated());
 
-        return redirect(route('admin.blog.edit', $blog))->with([
+        return redirect(route('admin.blog.store', $blog))->with([
             'success' => 'Successfully Created a new Blog Post.'
         ]);
     }
