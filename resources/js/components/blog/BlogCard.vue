@@ -9,6 +9,12 @@
             {{ blog.title }}
         </h4>
 
+        <template v-if="blog.additional_details">
+            <p class="mt-2">
+                {{ blog.additional_details }}
+            </p>
+        </template>
+
         <small class="block mb-auto">
             <template v-if="isFeatured">
                 Featured at: {{ blog.featured_at | prettyDateTime }}

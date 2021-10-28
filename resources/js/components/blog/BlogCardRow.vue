@@ -13,6 +13,12 @@
                     {{ blog.title }}
                 </h4>
 
+                <template v-if="blog.additional_details">
+                    <p class="mt-2">
+                        {{ blog.additional_details.substr(0, 80).trim() }}...
+                    </p>
+                </template>
+
                 <p>
                     {{ blog.main_content.substr(0, 80).trim() }}...
                 </p>
@@ -30,7 +36,7 @@
                 <div>
                     <a
                         class="btn btn-primary mt-4"
-                        :href="`/blog/${blog.id}`"
+                        :href="`/blog/${blog.slug}`"
                     >
                         View Blog
                     </a>

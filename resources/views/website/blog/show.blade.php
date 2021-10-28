@@ -31,6 +31,12 @@
             </div>
         @endif
 
+        @if($blog->additional_details)
+            <p class="py-4">
+                {{$blog->additional_details}}
+            </p>
+        @endif
+
         <p class="py-4">
             {{ $blog->main_content }}
         </p>

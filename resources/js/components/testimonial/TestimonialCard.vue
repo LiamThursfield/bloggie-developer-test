@@ -1,5 +1,5 @@
 <template>
-    <div class="card h-100 p-4">
+    <div class="card p-4">
         <p class="text-center font-weight-bold">
             {{ testimonial.message }}
         </p>
@@ -28,6 +28,25 @@
             testimonial: {
                 type: Object,
                 required: true,
+            }
+        },
+        data() {
+            return {
+                testimonials: null,
+            }
+        },
+        mounted() {
+            this.loadTestimonial();
+        },
+        methods: {
+            loadTestimonial() {
+                axios.get(
+                    '/api/testimonial/latest?limit=7',
+                ).then(response => {
+                    this.testimonials = response.data;
+                }).catch(e => {
+                    console.error('Failed to load testimonial');
+                });
             }
         }
     }

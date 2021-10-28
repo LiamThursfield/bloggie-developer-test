@@ -150,11 +150,11 @@
                                                 Expiry Date
                                             </label>
                                             <input
-                                                id="expiry_date"
+                                                id="expired_at"
                                                 class="form-control"
-                                                name="expiry_date"
+                                                name="expired_at"
                                                 type="datetime-local"
-                                                value="{{ old('expiry_date') }}"
+                                                value="{{ old('expired_at') }}"
                                             />
                                         </div>
                                     </div>
@@ -175,6 +175,23 @@
                                         rows="5"
                                         type="text"
                                     >{{ old('main_content') }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label
+                                        for="image_url"
+                                        class="form-control-label"
+                                    >
+                                        Additional details
+                                    </label>
+                                    <input
+                                        id="additional_details"
+                                        class="form-control"
+                                        name="additional_details"
+                                        placeholder="Additional details"
+                                        required
+                                        type="text"
+                                        value="{{ old('additional_details') }}"
+                                    />
                                 </div>
                             </div>
                             <!-- Card footer -->

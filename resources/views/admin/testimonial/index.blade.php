@@ -9,16 +9,16 @@
                 <div class="header-body">
                     <div class="row align-items-center py-4">
                         <div class="col-lg-6 col-7">
-                            <h6 class="h2 text-white d-inline-block mb-0">Blog Posts</h6>
+                            <h6 class="h2 text-white d-inline-block mb-0">Testimonials</h6>
                             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                     <li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="fas fa-home"></i></a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Blog posts</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Testimonials</li>
                                 </ol>
                             </nav>
                         </div>
                         <div class="col-lg-6 col-5 text-right">
-                            <a href="{{ route('admin.blog.create') }}" class="btn btn-sm btn-neutral">New</a>
+                            <a href="{{ route('admin.testimonial.create') }}" class="btn btn-sm btn-neutral">New</a>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                             <h3 class="mb-3">Filters</h3>
 
                             <form
-                                action="{{ route('admin.blog.index') }}"
+                                action="{{ route('admin.testimonial.index') }}"
                                 method="get"
                             >
                                 <div class="form-group mb-0">
@@ -65,83 +65,26 @@
                             <table class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Slug</th>
-                                    <th scope="col">Published At</th>
-                                    <th scope="col">Expired At </th>
-                                    <th scope="col">Featured At</th>
-                                    <th scope="col">Additional details</th>
+                                    <th scope="col">User Name</th>
+                                    <th scope="col">Rating</th>
+                                    <th scope="col">Message</th>
                                     <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody class="list">
-                                @foreach($blogs as $blog)
+                                @foreach($testimonials as $testimonial)
                                     <tr>
                                         <th>
                                             <span class="name text-md">
-                                                {{ $blog->title }}
+                                                {{ $testimonial->user_name }}
                                             </span>
                                         </th>
 
                                         <td>
-                                            {{ $blog->slug }}
-                                        </td>
-
-                                        <td>
-                                            @if($blog->published_at)
-                                                <span class="badge badge-dot mr-4">
-                                                    @if($blog->published_at > $now)
-                                                        <i class="bg-danger"></i>
-                                                    @else
-                                                        <i class="bg-success"></i>
-                                                    @endif
-
-                                                    <span class="status">
-                                                        {{ $blog->published_at }}
-                                                    </span>
-                                                </span>
-                                            @else
-                                                -
-                                            @endif
-                                        </td>
-
-                                        <td>
-                                            @if($blog->expired_at)
-                                                <span class="badge badge-dot mr-4">
-                                                    @if($blog->expired_at < $now)
-                                                        <i class="bg-danger"></i>
-                                                    @else
-                                                        <i class="bg-success"></i>
-                                                    @endif
-
-                                                    <span class="status">
-                                                        {{ $blog->expired_at }}
-                                                    </span>
-                                                </span>
-                                            @else
-                                                -
-                                            @endif
-                                        </td>
-
-                                        <td>
-                                            @if($blog->featured_at)
-                                                <span class="badge badge-dot mr-4">
-                                                    @if($blog->featured_at > $now)
-                                                        <i class="bg-danger"></i>
-                                                    @else
-                                                        <i class="bg-success"></i>
-                                                    @endif
-
-                                                    <span class="status">
-                                                        {{ $blog->featured_at }}
-                                                    </span>
-                                                </span>
-                                            @else
-                                                -
-                                            @endif
+                                            {{ $testimonial->rating }}
                                         </td>
                                         <td>
-                                            {{ $blog->additional_details }}
+                                            {{ $testimonial->message }}
                                         </td>
 
                                         <td class="text-right">
@@ -150,7 +93,7 @@
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                    <a class="dropdown-item" href="{{ route('admin.blog.edit', $blog) }}">Edit</a>
+                                                    <a class="dropdown-item" href="{{ route('admin.testimonial.edit', $testimonial) }}">Edit</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -161,7 +104,7 @@
                         </div>
                         <!-- Card footer -->
                         <div class="card-footer py-4">
-                            {{ $blogs->links() }}
+                            {{ $testimonials->links() }}
                         </div>
                     </div>
                 </div>
